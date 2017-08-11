@@ -1,0 +1,13 @@
+{
+    "extends": "standard",
+    "rules": {
+        "object-property-newline": "error",//强制将对象的属性放在不同的行上 
+        "one-var": ["error", "always"],//"强制函数中的变量在一起声明或分开声明"
+        "no-extra-boolean-cast": 0,//禁止不必要的bool转换
+        "space-before-function-paren": ["error", "never"],
+        "semi": ["error", "always"],//句尾加分号
+        "indent": ["error", 2],//对齐 4空格
+        "quotes": [0, "double"], //字符引用双分号
+        "import/no-webpack-loader-syntax": 0 // 异步引入文件
+    }
+}
