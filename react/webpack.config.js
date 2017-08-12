@@ -6,7 +6,7 @@ var path = require('path'),
 module.exports = {
   entry: path.resolve(__dirname, './modules/index.jsx'),
   output: {
-    path: path.resolve(__dirname, 'static'),
+    path: path.resolve(__dirname, 'static/cChunkJs'),
     filename: '[name].js',
     publicPath: '/',
     chunkFilename: '[id].chunk.js'
