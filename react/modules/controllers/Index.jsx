@@ -8,6 +8,9 @@ export default class Index extends React.Component {
         <ul>
           <li><Link to="/index">index</Link></li>
           <li><Link to="/about">About</Link></li>
+          <li><Link to="/lazyimg">lazyimg</Link></li>
+          <li><Link to="/slideimg">slideimg</Link></li>
+          <li><Link to="/lazyimg">lazyimg</Link></li>
         </ul>
         Index2
       </div>

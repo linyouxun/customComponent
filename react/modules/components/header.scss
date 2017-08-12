@@ -1,0 +1,28 @@
+$height: 40px;
+
+.header-common{
+  height: $height;
+  line-height: $height;
+  text-align: center;
+}
+
+.fixed{
+  position: fixed;
+  top: 0;
+}
+.header{
+  display: flex;
+  width: 100%;
+  border-bottom: 1px solid;
+  background-color: #FFF;
+  @extend .header-common;
+  .nav-button{
+    width: 50px;
+    font-size: 1.8rem;
+    @extend .header-common;
+  }
+  .nav-title{
+    flex: 1;
+    @extend .header-common;
+  }
+}
