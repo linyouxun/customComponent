@@ -1,5 +1,6 @@
 var path = require('path'),
-  HtmlWebpackPlugin = require('html-webpack-plugin');
+  HtmlWebpackPlugin = require('html-webpack-plugin'),
+  ExtractTextPlugin = require("extract-text-webpack-plugin");
 //     ExtractTextPlugin = require('extract-text-webpack-plugin'),
 //     autoprefixer = require('autoprefixer');
 
@@ -8,11 +9,15 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, 'static/cChunkJs'),
     filename: '[name].js',
-    publicPath: '/',
+    publicPath: '/static/cChunkJs',
     chunkFilename: '[id].chunk.js'
   },
   resolve: {
     extensions: [".js", ".jsx", "css", "less", "scss", "png", "jpg"]
+  },
+  externals: {
+    'react': 'window.React',
+    'react-dom': 'window.ReactDOM'
   },
   devServer: {
     historyApiFallback: true,
@@ -22,7 +27,7 @@ module.exports = {
   },
   devtool: 'source-map',
   module: {
-    loaders: [
+    rules: [
       {
         test: /\.jsx?$/,
         exclude: /node_modules/,
@@ -32,7 +37,11 @@ module.exports = {
         loader: 'style-loader!css-loader'
       }, {
         test: /\.scss$/,
-        loader: 'style-loader!css-loader!sass-loader?sourceMap'
+        use: ExtractTextPlugin.extract({
+          fallback: 'style-loader',
+          // resolve-url-loader may be chained before sass-loader if necessary
+          use: ['css-loader', 'sass-loader']
+        })
       }
     ]
   },
@@ -42,5 +51,5 @@ module.exports = {
     filename: 'index.html',
     inject: true,
     hash: true
-  })]
+  }), new ExtractTextPlugin("styles.css")]
 };

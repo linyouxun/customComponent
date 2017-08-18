@@ -2,7 +2,7 @@ import React from 'react';
 import { render } from 'react-dom';
 // import routes from './routes/index';
 // import Error from './controllers/Error';
-import App from './controllers/App';
+import App from './controllers/App2';
 // hashHistory browserHistory useRouterHistory
 import {HashRouter, hashHistory} from 'react-router-dom';
 // import {createHistory} from 'history';

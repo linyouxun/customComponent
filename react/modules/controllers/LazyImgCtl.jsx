@@ -1,16 +1,17 @@
 import React from 'react';
 import LazyImg from "../components/LazyImg";
+import "./lazyImgCtl.scss";
 
 export default class LazyImgCtl extends React.Component {
   componentDidMount() {
-    require('./lazyImgCtl.scss');
+    // require('./lazyImgCtl.scss');
     // import from "./App.scss";
   }
 
   render() {
     const imgs2 = [];
     for (let i = 1; i < 13; i++) {
-      imgs2.push("http://192.168.10.10:8081/" + i + ".png");
+      imgs2.push("/static/imgs/" + i + ".png");
     }
     return (
       <div>

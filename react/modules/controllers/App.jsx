@@ -1,4 +1,5 @@
-import React, {PropTypes} from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import {Switch, Route} from 'react-router-dom';
 // components
 import Header from '../components/Header';

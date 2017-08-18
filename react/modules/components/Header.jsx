@@ -1,9 +1,10 @@
-import React, {PropTypes} from 'react';
-// import './header.scss';
+import React from 'react';
+import PropTypes from 'prop-types';
+import './header.scss';
 
 export default class Header extends React.Component {
   componentDidMount() {
-    require('./header.scss');
+    // require('./header.scss');
   }
   render() {
     let {leftButton, rightButton, title} = this.props;
