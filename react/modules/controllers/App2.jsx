@@ -12,6 +12,10 @@ import SlideImgCtl from './SlideImgCtl';
 import NotFound from './NotFound';
 
 export default class App extends React.Component {
+  constructor(props) {
+    super(props);
+    console.log('init App');
+  }
   componentDidMount() {
     // require('./app.scss');
   }

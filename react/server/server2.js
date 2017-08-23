@@ -8,9 +8,8 @@ var Koa = require('koa'),
   webpack = require('webpack'),
   webpackConfig = require('../webpack.config'),
   compiler = webpack(webpackConfig),
-  isDev = process.env.NODE_ENV !== 'production';
-console.log("process.env.NODE_ENV ", process.env.NODE_ENV);
-console.log("isDev: ", isDev);
+  isDev = process.env.NODE_ENV !== 'production',
+  c = require('child_process');
 // 是否是dev环境，是 webpack实时更新
 if (isDev) {
   app.use(require("./devMiddleware")(compiler, {
@@ -21,4 +20,11 @@ app.use(serve(path.resolve(__dirname, '..')));
 app.use(bodyParser());
 router.use('/', index.routes());
 app.use(router.routes());
-app.listen(3000);
+app.listen(3000, (error) => {
+  if (error) {
+    console.log('start error');
+  } else {
+    console.log('start http://192.168.10.10:3000');
+    c.exec('start http://192.168.10.10:3000');
+  }
+});

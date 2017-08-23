@@ -1,0 +1,41 @@
+// 重要
+$jacinth-color: #FF6325; // 用于一级导航栏颜色以及重要突出文字，数字，按钮和图标icon
+$black-color: #333333; // 重要文字信息，导航栏文字，内页标题文字
+// 一般
+$black-sub-color: #666666; // 用于次级文字，如列表标签，菜单栏，导航栏文字，图标
+$black-level-3-color: #999999; // 用于辅助文字信息，普通文字段落信息和引导词
+$black-level-4-color: #cccccc; // 用于默认填写文字信息
+//软弱
+$slice-color: #d7d7d7; //重点分割线
+$slice-sub-color: #e5e5e5; //不同模块之间的分割线
+$slice-level-3-color: #f5f5f5; //分割模块之间的底色
+//其他颜色
+$color-1: #ffa455;
+$color-2: #ff9696;
+$color-3: #5ed4ee;
+$color-4: #d696ec;
+$color-5: #ff7b7c;
+$color-6: #ff7eb6;
+$color-7: #b2db35;
+$color-8: #8aa3ff;
+// 文字
+// 重要
+$wFont: 40px; //重要文字，如价格数字
+$wFont-height: 46px;
+$wFont-2: 36px; //导航栏标题
+$wFont-height-2: 44px;
+$wFont-3: 36px; //较为重要的文字，如按钮文字
+$wFont-height-3: 44px;
+$wFont-3: 36px; //较为重要的文字，如模块标题，段落描述
+$wFont-height-3: 44px;
+// 一般
+$font: 28px; //大多数文字，如商品详情
+$font-height: 36px; 
+$sub-font: 26px; // 次级文字，如次级段落文字
+$sub-font-height: $font-height;
+$assist-font: 24px; // 辅助性文字，如次级标语
+$assist-font-height: 34px;
+$assist-font-2: 20px; // 标签性质文字
+$assist-font-height-2: 30px;
+// 圆角
+$border-radius: 4px; // 一般高度有64 80px 90px

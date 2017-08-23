@@ -1,5 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
+import AddTodo from './AddTodo';
+import AddTodo2 from './AddTodo2';
 
 export default class Index extends React.Component {
   componentDidMount() {
@@ -17,6 +19,8 @@ export default class Index extends React.Component {
           <li><Link to="/lazyimg">lazyimg</Link></li>
         </ul>
         Index2
+        <AddTodo/>
+        <AddTodo2/>
       </div>
     );
   }

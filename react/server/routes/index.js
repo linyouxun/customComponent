@@ -1,18 +1,26 @@
 import React from 'react';
 import App2 from '../../modules/controllers/App2';
-import { StaticRouter as Router } from 'react-router';
+import { StaticRouter as Router } from 'react-router'; // BrowserRouter  StaticRouter
 import { renderToString } from 'react-dom/server';
-var router = require('koa-router')();
+// import App2 from '../../modules/controllers/AppRedux';
+import { createStore } from 'redux';
+import { Provider } from 'react-redux';
+import ReduxApp from '../../modules/redux/index';
+let store = createStore(ReduxApp);
+let router = require('koa-router')();
 
 router.get('a', (ctx, next) => {
   ctx.body = {a: 'a'};
 });
-router.get('/', (ctx, next) => {
+router.get('*', (ctx, next) => {
+  console.log(ctx.url);
   let $html = render(renderToString(
       (
+        <Provider store={store}>
           <Router context={{}} location={ctx.url}>
               <App2/>
           </Router>
+        </Provider>
       )
   ));
   ctx.body = $html;

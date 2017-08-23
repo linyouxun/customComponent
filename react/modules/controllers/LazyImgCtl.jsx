@@ -6,6 +6,7 @@ export default class LazyImgCtl extends React.Component {
   componentDidMount() {
     // require('./lazyImgCtl.scss');
     // import from "./App.scss";
+    console.log('imgCtl');
   }
 
   render() {
