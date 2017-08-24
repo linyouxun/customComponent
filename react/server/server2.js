@@ -9,14 +9,20 @@ var Koa = require('koa'),
   webpackConfig = require('../webpack.config'),
   compiler = webpack(webpackConfig),
   isDev = process.env.NODE_ENV !== 'production',
+  webpackDevMiddleware = require('koa-webpack-dev-middleware'),
+  webpackHotMiddleware = require('koa-webpack-hot-middleware'),
   c = require('child_process');
 // 是否是dev环境，是 webpack实时更新
 if (isDev) {
-  app.use(require("./devMiddleware")(compiler, {
-    noInfo: true, publicPath: webpackConfig.output.publicPath
+  app.use(webpackDevMiddleware(compiler, {
+    noInfo: true,
+    // publicPath: webpackConfig.output.publicPath,
   }));
+  app.use(webpackHotMiddleware(compiler));
 }
-app.use(serve(path.resolve(__dirname, '..')));
+console.log(path.resolve(__dirname, '..'));
+app.use(serve(path.resolve(__dirname, '..'), { extensions: ['html', 'js', 'css']}));
+// app.use(serve(path.resolve(__dirname, '../static/cChunkJs'), { extensions: ['html']}));
 app.use(bodyParser());
 router.use('/', index.routes());
 app.use(router.routes());

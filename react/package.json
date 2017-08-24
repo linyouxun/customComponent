@@ -8,7 +8,8 @@
     "client-hot": "webpack-dev-server --config  webpack.config.js --content-base static/cChunlJs --hot --inline --host 0.0.0.0",
     "client-build": "webpack --config webpack.config.js -p -d",
     "server-start": "npm run client-build && cross-env NODE_ENV='production' node server/index.js",
-    "server-start-dev": "cross-env NODE_ENV='dev' node server/index.js"
+    "server-start-dev": "cross-env NODE_ENV='dev' node server/index.js",
+    "start": "npm run server-start"
   },
   "author": "",
   "license": "ISC",

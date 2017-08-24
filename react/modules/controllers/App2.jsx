@@ -14,7 +14,7 @@ import NotFound from './NotFound';
 export default class App extends React.Component {
   constructor(props) {
     super(props);
-    console.log('init App');
+    console.log('init App2');
   }
   componentDidMount() {
     // require('./app.scss');
