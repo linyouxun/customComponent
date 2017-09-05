@@ -5,11 +5,16 @@ import {Switch, Route} from 'react-router-dom';
 import Header from '../components/Header';
 // scss
 import './app.scss';
+
 // controllers
 import Index from './Index';
 import LazyImgCtl from './LazyImgCtl';
 import SlideImgCtl from './SlideImgCtl';
 import NotFound from './NotFound';
+
+import asyncComponent from '../components/asyncComponent';
+
+// const LazyImgCtl = asyncComponent(() => import('./LazyImgCtl').then(module => module.default));
 
 export default class App extends React.Component {
   constructor(props) {
@@ -18,6 +23,14 @@ export default class App extends React.Component {
   }
   componentDidMount() {
     // require('./app.scss');
+    // console.log('init BJ_REPORT');
+    // let BJ_REPORT = require('badjs-report');
+    // BJ_REPORT.init({
+    //   id: 1,
+    //   url:'/a'
+    // });
+    // //记录离线日志
+    // BJ_REPORT.offlineLog("offlineLog");
   }
   goBack() {
     let {router} = this.context;

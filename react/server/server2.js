@@ -20,9 +20,10 @@ if (isDev) {
   }));
   app.use(webpackHotMiddleware(compiler));
 }
-console.log(path.resolve(__dirname, '..'));
-app.use(serve(path.resolve(__dirname, '..'), { extensions: ['html', 'js', 'css']}));
-// app.use(serve(path.resolve(__dirname, '../static/cChunkJs'), { extensions: ['html']}));
+console.log(__dirname)
+app.use(serve(path.resolve(__dirname, '../static/cChunkJs'), { extensions: ['html', 'js', 'css']}));
+app.use(serve(path.resolve(__dirname, '../'), { extensions: ['html', 'js', 'css']}));
+app.use(serve(path.resolve(__dirname, './'), { extensions: ['html', 'js', 'css']}));
 app.use(bodyParser());
 router.use('/', index.routes());
 app.use(router.routes());

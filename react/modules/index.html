@@ -4,8 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
     <title>My App</title>
-    <script src="https://cdn.bootcss.com/react/15.6.1/react.min.js"></script>
-    <script src="https://cdn.bootcss.com/react/15.6.1/react-dom.min.js"></script>
+    <script type="text/javascript" src="/static/js/bj-report-tryjs.js"></script>
+    <script crossorigin="anonymous" src="https://cdn.bootcss.com/react/15.6.1/react.min.js"></script>
+    <script crossorigin="anonymous" src="https://cdn.bootcss.com/react/15.6.1/react-dom.min.js"></script>
+    <script type="text/javascript">
+      window.onerror = function (message, url, lineNo, columnNo, error) {
+        console.log(message, url, lineNo, columnNo, error);
+      }
+      BJ_REPORT.init({
+        id: 1,
+        url:'/a',
+        offlineLog : true,                    // 是否启离线日志 [默认 false]
+        offlineLogExp : 5,                    // 离线有效时间，默认最近5天
+      });
+    </script>
   </head>
   <body>
     <div id="app"></div>
