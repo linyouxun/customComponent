@@ -8,16 +8,10 @@ import { Provider } from 'react-redux';
 import ReduxApp from '../../modules/redux/index';
 let store = createStore(ReduxApp);
 let router = require('koa-router')();
-
 router.get('a', (ctx, next) => {
-  console.log('---------------\r\n\r\n');
-  console.log(ctx.query);
   ctx.body = ctx.query;
 });
 router.get('*', (ctx, next) => {
-  if(/\..*$/.test(ctx.url)) {
-    return next();
-  }
   let $html = render(renderToString(
       (
         <Provider store={store}>
@@ -38,10 +32,10 @@ function render(html) {
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
       <title>My App</title>
-    <link href="/styles.css?edad411b28a5b3c28c97" rel="stylesheet"></head>
+    <link href="/static/cChunkJs/styles.css?edad411b28a5b3c28c97" rel="stylesheet"></head>
     <body>
       <div id="app">${html}</div>
-    <script crossorigin="anonymous" type="text/javascript" src="/main.js?edad411b28a5b3c28c97"></script></body>
+    <script crossorigin="anonymous" type="text/javascript" src="/static/cChunkJs/main.js?edad411b28a5b3c28c97"></script></body>
   </html>`;
 }
 

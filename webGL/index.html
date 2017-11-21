@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <canvas id="glCanvas" width="640" height="480"></canvas>
+
+    <script type="text/javascript">
+          const vsSource = `
+          attribute vec4 aVertexPosition;
+      
+          uniform mat4 uModelViewMatrix;
+          uniform mat4 uProjectionMatrix;
+      
+          void main() {
+            gl_Position = uProjectionMatrix * uModelViewMatrix * aVertexPosition;
+          }
+        `;
+    </script>
+</body>
+</html>

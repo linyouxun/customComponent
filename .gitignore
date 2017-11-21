@@ -6,4 +6,5 @@ build*/
 logs/
 auth.js
 true/
+log
 *.log

@@ -13,7 +13,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, 'static/cChunkJs'),
     filename: '[name].js',
-    // publicPath: '/static/cChunkJs',
+    publicPath: '/static/cChunkJs',
     chunkFilename: '[name].[id].chunk.js'
   },
   resolve: {

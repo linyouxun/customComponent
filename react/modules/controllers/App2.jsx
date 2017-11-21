@@ -11,6 +11,8 @@ import Index from './Index';
 import LazyImgCtl from './LazyImgCtl';
 import SlideImgCtl from './SlideImgCtl';
 import NotFound from './NotFound';
+import WebGl from './WebGl';
+import Util from './Util';
 
 import asyncComponent from '../components/asyncComponent';
 
@@ -22,15 +24,7 @@ export default class App extends React.Component {
     console.log('init App2');
   }
   componentDidMount() {
-    // require('./app.scss');
-    // console.log('init BJ_REPORT');
-    // let BJ_REPORT = require('badjs-report');
-    // BJ_REPORT.init({
-    //   id: 1,
-    //   url:'/a'
-    // });
-    // //记录离线日志
-    // BJ_REPORT.offlineLog("offlineLog");
+    
   }
   goBack() {
     let {router} = this.context;
@@ -45,6 +39,8 @@ export default class App extends React.Component {
           <Route path="/index" component={Index} />
           <Route path="/lazyimg" component={LazyImgCtl} />
           <Route path="/slideimg" component={SlideImgCtl} />
+          <Route path="/webgl" component={WebGl} />
+          <Route path="/util" component={Util} />
           <Route component={NotFound} />
         </Switch>
       </div>
