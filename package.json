@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "jshint": "^2.9.5",
     "moment": "^2.19.1"
   }
 }
