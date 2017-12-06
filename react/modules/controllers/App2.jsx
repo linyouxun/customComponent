@@ -11,8 +11,11 @@ import Index from './Index';
 import LazyImgCtl from './LazyImgCtl';
 import SlideImgCtl from './SlideImgCtl';
 import NotFound from './NotFound';
+import Login from './login/Login';
 import WebGl from './WebGl';
 import Util from './Util';
+
+import PreLoading from './PreLoading/PreLoading';
 
 import asyncComponent from '../components/asyncComponent';
 
@@ -41,6 +44,8 @@ export default class App extends React.Component {
           <Route path="/slideimg" component={SlideImgCtl} />
           <Route path="/webgl" component={WebGl} />
           <Route path="/util" component={Util} />
+          <Route path="/login" component={Login} />
+          <Route path="/preloading" component={PreLoading} />
           <Route component={NotFound} />
         </Switch>
       </div>

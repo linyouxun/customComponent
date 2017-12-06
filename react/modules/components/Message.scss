@@ -1,0 +1,30 @@
+.message {
+  position: fixed;
+  left: 50%;
+  width: 50%;
+  transform: translate(-50%,-50%);
+  text-align: center;
+  z-index: 1999999;
+  width: 100%;
+  .text {
+    padding: 0px 20px;
+    background: rgba(0, 0, 0, 0.75);
+    color: #fff;
+    border-radius: 21px;
+    animation: fadeIn .8s;
+    height: 42px;
+    line-height: 42px;
+    font-size: 16px;
+    display: inline-block;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0.01;
+    }
+  
+    to {
+      opacity: 1;
+    }
+  }
+}

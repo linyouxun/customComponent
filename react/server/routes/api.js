@@ -1,6 +1,6 @@
 let router = require('koa-router')();
 
-router.get('/getUser', (ctx, next) => {
+router.post('/getUser', (ctx, next) => {
   ctx.type = 'json';
   ctx.body = {
     name: 'lyx',

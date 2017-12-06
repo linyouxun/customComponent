@@ -2,6 +2,7 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import AddTodo from './AddTodo';
 import AddTodo2 from './AddTodo2';
+import {$prompt} from '../components/Message';
 
 export default class Index extends React.Component {
   constructor(props) {
@@ -22,7 +23,7 @@ export default class Index extends React.Component {
   }
 
   changeData(event) {
-    console.log(event);
+    $prompt(event.target.value);
     this.setState({
       text: event.target.value
     })
@@ -39,6 +40,7 @@ export default class Index extends React.Component {
           <li><Link to="/slideimg">slideimg</Link></li>
           <li><Link to="/lazyimg">lazyimg</Link></li>
           <li><Link to="/webgl">webgl</Link></li>
+          <li><Link to="/preloading">preloading</Link></li>
         </ul>
         Index2
         <AddTodo/>

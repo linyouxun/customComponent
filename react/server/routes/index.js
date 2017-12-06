@@ -11,6 +11,9 @@ let router = require('koa-router')();
 router.get('a', (ctx, next) => {
   ctx.body = ctx.query;
 });
+router.post('a', (ctx, next) => {
+  ctx.body = 'asdasdasd';
+});
 router.get('*', (ctx, next) => {
   let $html = render(renderToString(
       (
