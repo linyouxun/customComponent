@@ -1,5 +1,5 @@
 import React from 'react';
-import './Preloading.scss';
+import './PreLoading.scss';
 
 const ItemCell = (item) => {
   // 判断item为空
