@@ -1,11 +1,10 @@
+let request = require('../request');
 let router = require('koa-router')();
 
-router.post('/getUser', (ctx, next) => {
+router.get('/', async (ctx, next) => {
+  let data = await request('http://guangzhou.yoju360.com/api/location');
   ctx.type = 'json';
-  ctx.body = {
-    name: 'lyx',
-    age: 25
-  }
+  ctx.body = data
 });
 
 module.exports = router;

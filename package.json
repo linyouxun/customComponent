@@ -1,6 +1,8 @@
 {
   "dependencies": {
+    "bluebird": "^3.5.1",
     "jshint": "^2.9.5",
-    "moment": "^2.19.1"
+    "moment": "^2.19.1",
+    "request": "^2.83.0"
   }
 }
