@@ -8,7 +8,7 @@ function fetchData(url,formData = {},method = "GET",headers = {}) {
     url,
     headers,
     gzip: true,
-    formData
+    form: formData
   };
   return new Promise((resolve, reject) => {
     request(options).then(({body}) => { //尝试抓取
@@ -34,7 +34,7 @@ function fetchData(url,formData = {},method = "GET",headers = {}) {
       }
       if (JSONBody && JSONBody.code === 200)
         return resolve(JSONBody);
-      reject(JSONBody);
+        return reject(JSONBody);
     });
   });
 }
