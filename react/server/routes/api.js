@@ -18,7 +18,7 @@ async function cityCompanies(id, province) {
     pageSize: 1000,
     cityId: id
   };
-  let str = `<url><loc>http://${province}.yoju360.com/store</loc><priority>0.80</priority><lastmod>2017-12-14</lastmod><changefreq>always</changefreq></url>\n`;
+  let str = `<url><loc>http://${province}.yoju360.com</loc><priority>0.80</priority><lastmod>2017-12-22</lastmod><changefreq>always</changefreq></url>\n<url><loc>http://${province}.yoju360.com/store</loc><priority>0.80</priority><lastmod>2017-12-22</lastmod><changefreq>always</changefreq></url>\n`;
   let data = await request(url,params,"POST");
   if (!!data && data.code == 200) {
     data.result.list.map((item, i) => {

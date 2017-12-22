@@ -30,7 +30,7 @@ router.get('*', (ctx, next) => {
 function render(html) {
   return `
   <!DOCTYPE html>
-  <html style="font-size:20px">
+  <html style="font-size:0px">
     <head>
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">

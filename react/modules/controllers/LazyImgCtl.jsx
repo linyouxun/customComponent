@@ -3,13 +3,15 @@ import LazyImg from "../components/LazyImg";
 import "./lazyImgCtl.scss";
 
 export default class LazyImgCtl extends React.Component {
+  constructor(props) {
+    super(props);
+  }
   componentDidMount() {
     // require('./lazyImgCtl.scss');
     // import from "./App.scss";
     console.log('imgCtl');
     // console.log(a);
   }
-
   render() {
     const imgs2 = [];
     for (let i = 1; i < 13; i++) {

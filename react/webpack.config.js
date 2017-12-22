@@ -40,7 +40,7 @@ module.exports = {
           loader: 'babel-loader',
           options: {
             presets: ['es2015', 'react', 'stage-0'],
-            plugins: ['syntax-dynamic-import']
+            plugins: ['syntax-dynamic-import', 'transform-decorators-legacy']
           }
         }
       }, {

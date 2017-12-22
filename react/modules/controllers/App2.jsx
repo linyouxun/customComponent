@@ -18,9 +18,10 @@ import Util from './Util';
 import PreLoading from './PreLoading/PreLoading';
 
 import asyncComponent from '../components/asyncComponent';
-
 // const LazyImgCtl = asyncComponent(() => import('./LazyImgCtl').then(module => module.default));
 
+import rem from '../components/SetRem';
+@rem
 export default class App extends React.Component {
   constructor(props) {
     super(props);

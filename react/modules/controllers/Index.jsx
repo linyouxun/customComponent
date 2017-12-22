@@ -5,6 +5,7 @@ import AddTodo2 from './AddTodo2';
 import {$prompt} from '../components/Message';
 
 export default class Index extends React.Component {
+// export class Index extends React.Component {
   constructor(props) {
     super(props);
     this.textInput = '';
@@ -56,3 +57,5 @@ export default class Index extends React.Component {
     );
   }
 }
+
+// export default rem(Index);
