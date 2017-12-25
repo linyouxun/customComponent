@@ -26,7 +26,10 @@ module.exports = app => {
   app.use(serve(path.resolve(__dirname, '../'), { extensions: ['html', 'js', 'css']}));
   app.use(bodyParser());
   app.use(async (ctx,next) => {
+      const start = Date.now();
       await next();
+      const ms = Date.now() - start;
+      ctx.set('X-Response-Time', `${ms}ms`);
       logger.info(ctx.url,ctx.method,JSON.stringify(ctx.request.body),JSON.stringify(ctx.query),ctx.status,ctx.protocol,ctx.ip,ctx.headers['user-agent'],ctx.headers['host']);
   });
   app.use(router.routes());

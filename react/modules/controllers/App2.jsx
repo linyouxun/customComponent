@@ -21,19 +21,30 @@ import asyncComponent from '../components/asyncComponent';
 // const LazyImgCtl = asyncComponent(() => import('./LazyImgCtl').then(module => module.default));
 
 import rem from '../components/SetRem';
+import maxWidth from '../components/SetMaxWidth';
+
+
+@maxWidth
 @rem
 export default class App extends React.Component {
-  constructor(props) {
-    super(props);
+  constructor(props, context) {
+    super(props, context);
     console.log('init App2');
   }
-  componentDidMount() {
-    
+
+  static contextTypes = {
+    router: PropTypes.object.isRequired
   }
+
+  componentDidMount() {
+
+  }
+
   goBack() {
     let {router} = this.context;
     router.history.goBack();
   }
+
   render() {
     return (
       <div>
@@ -54,6 +65,6 @@ export default class App extends React.Component {
   }
 }
 
-App.contextTypes = {
-  router: PropTypes.object.isRequired
-};
+// App.contextTypes = {
+//   router: PropTypes.object.isRequired
+// };

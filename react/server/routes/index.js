@@ -15,10 +15,11 @@ router.post('a', (ctx, next) => {
   ctx.body = 'asdasdasd';
 });
 router.get('*', (ctx, next) => {
+  
   let $html = render(renderToString(
       (
         <Provider store={store}>
-          <Router context={{}} location={ctx.url}>
+          <Router context={{s:'dddd'}} location={ctx.url}>
               <App2/>
           </Router>
         </Provider>
@@ -30,7 +31,7 @@ router.get('*', (ctx, next) => {
 function render(html) {
   return `
   <!DOCTYPE html>
-  <html style="font-size:0px">
+  <html>
     <head>
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">

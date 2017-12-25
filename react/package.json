@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "client-hot": "webpack-dev-server --config  webpack.config.js --content-base static/cChunlJs --hot --inline --host 0.0.0.0 --port 3000",
+    "client-hot": "webpack-dev-server --config  webpack.config.js --content-base static/cChunlJs --hot --inline --host 0.0.0.0 --port 5000",
     "client-build": "webpack --config webpack.config.js -p -d",
     "client-watch": "webpack --config webpack.config.js -p -d -w",
     "server-start": "npm run client-build && cross-env NODE_ENV='production' node server/index.js",
