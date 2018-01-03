@@ -14,6 +14,9 @@ import NotFound from './NotFound';
 import Login from './login/Login';
 import WebGl from './WebGl';
 import Util from './Util';
+import About from './About';
+import SpinCpm from './SpinCpm';
+
 
 import PreLoading from './PreLoading/PreLoading';
 
@@ -52,11 +55,13 @@ export default class App extends React.Component {
         <Switch>
           <Route exact path="/" component={Index} />
           <Route path="/index" component={Index} />
+          <Route path="/about" component={About} />
           <Route path="/lazyimg" component={LazyImgCtl} />
           <Route path="/slideimg" component={SlideImgCtl} />
           <Route path="/webgl" component={WebGl} />
           <Route path="/util" component={Util} />
           <Route path="/login" component={Login} />
+          <Route path="/spin" component={SpinCpm} />
           <Route path="/preloading" component={PreLoading} />
           <Route component={NotFound} />
         </Switch>

@@ -50,11 +50,14 @@ module.exports = {
         test: /\.scss$/,
         use: ExtractTextPlugin.extract({
           fallback: 'style-loader',
-          use: ['css-loader', 'sass-loader']
+          use: ['css-loader', 'postcss-loader', 'sass-loader']
         })
       }
     ]
   },
+  // postcss: function () {
+  //   return [require('autoprefixer')];
+  // },
   plugins: [new HtmlWebpackPlugin({
     title: 'My App',
     template: path.resolve(__dirname, './modules/index.html'),
@@ -62,6 +65,19 @@ module.exports = {
     inject: true,
     hash: true
   }), 
+  // new webpack.LoaderOptionsPlugin({
+  //   options: {
+  //     postcss: function () {
+  //       return ["autoprefixer"];
+  //     },
+  //     // devServer: {
+  //     //   contentBase: "./public", //本地服务器所加载的页面所在的目录
+  //     //   colors: true, //终端中输出结果为彩色
+  //     //   historyApiFallback: true, //不跳转
+  //     //   inline: true //实时刷新
+  //     // }
+  //   }
+  // }),
   new ExtractTextPlugin("styles.css"),
   new ScriptExtHtmlWebpackPlugin({
     defaultAttribute: 'async',

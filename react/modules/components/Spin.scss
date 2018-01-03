@@ -1,0 +1,70 @@
+
+
+.spin-load {
+  position: relative;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+  font-size: 20px;
+  transform: rotate(45deg);
+  animation: antRotate 1.2s infinite linear;
+}
+.s-l-circle {
+  background: #1890ff;
+  height: 50%;
+  width: 50%;
+  display: inline-block;
+  float: right;
+  border-radius: 100%;
+  transform: scale(.75);
+  &:nth-child(0) {
+    opacity: .9;
+  }
+  &:nth-child(1) {
+    opacity: .75;
+  }
+  &:nth-child(2) {
+    opacity: .5;
+  }
+}
+
+.spin-sm {
+  width: 16px;
+  height: 16px;
+  line-height: 16px;
+  font-size: 16px;
+}
+
+.spin-lg {
+  width: 24px;
+  height: 24px;
+  line-height: 24px;
+  font-size: 24px;
+}
+.cpm-spin {
+  position: relative;
+  width: auto;
+  display: inline-block;
+  &::after {
+    content: '';
+    background: rgba(0,0,0,.1);
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+  .spin-load-msg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -10px;
+  }
+}
+
+@keyframes antRotate {
+  to {
+      transform: rotate(405deg);
+  }
+}

@@ -38,6 +38,19 @@ function render(html) {
       <title>My App</title>
     <link href="/static/cChunkJs/styles.css?edad411b28a5b3c28c97" rel="stylesheet"></head>
     <body>
+      <!--[if lt IE 9]>
+          <style>
+            #app{display:none!important;}
+            .ie-noscript-warning {
+              text-align: center;
+            }
+          </style>
+          <div class="ie-noscript-warning">
+            <h3 style="font-size: 36px">请升级浏览器</h3>
+            <h4 style="font-size: 24px">不支持ie9以及ie9以下版本</h4>
+          </div>
+      <![endif]-->
+      
       <div id="app">${html}</div>
     <script crossorigin="anonymous" type="text/javascript" src="/static/cChunkJs/main.js?edad411b28a5b3c28c97"></script></body>
   </html>`;
