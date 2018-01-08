@@ -52,7 +52,8 @@ function render(html) {
       <![endif]-->
       
       <div id="app">${html}</div>
-    <script crossorigin="anonymous" type="text/javascript" src="/static/cChunkJs/main.js?edad411b28a5b3c28c97"></script></body>
+      <script crossorigin="anonymous" type="text/javascript" src="/static/cChunkJs/common.js?edad411b28a5b3c28c97"></script></body>
+      <script crossorigin="anonymous" type="text/javascript" src="/static/cChunkJs/index.js?edad411b28a5b3c28c97"></script></body>
   </html>`;
 }
 

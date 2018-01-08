@@ -5,11 +5,14 @@ var path = require('path'),
   isDev = process.env.NODE_ENV !== 'production',
   noop = new Function(),
   webpack = require("webpack");
-//     ExtractTextPlugin = require('extract-text-webpack-plugin'),
-//     autoprefixer = require('autoprefixer');
+const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 
 module.exports = {
-  entry: ['babel-polyfill', path.resolve(__dirname, './modules/index.jsx')],
+  // entry: ['babel-polyfill', path.resolve(__dirname, './modules/index.jsx')],
+  entry: {
+    common: ['babel-polyfill', 'react', 'react-dom', 'prop-types'],
+    index: path.resolve(__dirname, './modules/index.jsx')
+  },
   output: {
     path: path.resolve(__dirname, 'static/cChunkJs'),
     filename: '[name].js',
@@ -19,23 +22,17 @@ module.exports = {
   resolve: {
     extensions: [".js", ".jsx", "css", "less", "scss", "png", "jpg"]
   },
-  externals: {
-    // 'react': 'window.React',
-    // 'react-dom': 'window.ReactDOM'
-  },
   devServer: {
     historyApiFallback: true,
     hot: true,
     inline: true
     // progress: true// 报错无法识别，删除后也能正常刷新
   },
-  devtool: isDev ? 'source-map' : false,
   module: {
     rules: [
       {
         test: /\.jsx?$/,
         exclude: /node_modules/,
-        // loader: 'babel-loader?presets[]=es2015&presets[]=react&presets[]=stage-0',
         use: {
           loader: 'babel-loader',
           options: {
@@ -55,46 +52,43 @@ module.exports = {
       }
     ]
   },
-  // postcss: function () {
-  //   return [require('autoprefixer')];
-  // },
-  plugins: [new HtmlWebpackPlugin({
-    title: 'My App',
-    template: path.resolve(__dirname, './modules/index.html'),
-    filename: 'index.html',
-    inject: true,
-    hash: true
-  }), 
-  // new webpack.LoaderOptionsPlugin({
-  //   options: {
-  //     postcss: function () {
-  //       return ["autoprefixer"];
-  //     },
-  //     // devServer: {
-  //     //   contentBase: "./public", //本地服务器所加载的页面所在的目录
-  //     //   colors: true, //终端中输出结果为彩色
-  //     //   historyApiFallback: true, //不跳转
-  //     //   inline: true //实时刷新
-  //     // }
-  //   }
-  // }),
-  new ExtractTextPlugin("styles.css"),
-  new ScriptExtHtmlWebpackPlugin({
-    defaultAttribute: 'async',
-    custom: [
-      {
-        test: /\.js$/,
-        attribute: 'crossorigin',
-        value: 'anonymous'
+  plugins: [
+    new webpack.DefinePlugin({
+      'process.env':{
+        'NODE_ENV': isDev ? JSON.stringify('dev') : JSON.stringify('production')
       }
-    ]
-  }),
-  isDev ? noop : new webpack.optimize.UglifyJsPlugin({
-    sourceMap: true,
-		mangle: false,
-    compress: {
-      warnings: false,
-      drop_console: false,
-    }
-  })]
+    }),
+    // new HtmlWebpackPlugin({
+    //   title: 'My App',
+    //   template: path.resolve(__dirname, './modules/index.html'),
+    //   filename: 'index.html',
+    //   inject: true,
+    //   hash: true
+    // }), 
+    // new webpack.LoaderOptionsPlugin({
+    //   options: {
+    //     postcss: function () {
+    //       return ["autoprefixer"];
+    //     },
+    //     // devServer: {
+    //     //   contentBase: "./public", //本地服务器所加载的页面所在的目录
+    //     //   colors: true, //终端中输出结果为彩色
+    //     //   historyApiFallback: true, //不跳转
+    //     //   inline: true //实时刷新
+    //     // }
+    //   }
+    // }),
+    new ExtractTextPlugin("styles.css"),
+    new ScriptExtHtmlWebpackPlugin({
+      defaultAttribute: 'async',
+      custom: [
+        {
+          test: /\.js$/,
+          attribute: 'crossorigin',
+          value: 'anonymous'
+        }
+      ]
+    }),
+    isDev ? noop: new UglifyJSPlugin()
+  ]
 };

@@ -10,23 +10,24 @@ import './app.scss';
 import Index from './Index';
 import LazyImgCtl from './LazyImgCtl';
 import SlideImgCtl from './SlideImgCtl';
-import NotFound from './NotFound';
 import Login from './login/Login';
 import WebGl from './WebGl';
 import Util from './Util';
 import About from './About';
 import SpinCpm from './SpinCpm';
-
-
 import PreLoading from './PreLoading/PreLoading';
+import NotFound from './NotFound';
 
-import asyncComponent from '../components/asyncComponent';
+
+
+// import asyncComponent from '../components/asyncComponent';
 // const LazyImgCtl = asyncComponent(() => import('./LazyImgCtl').then(module => module.default));
 
 import rem from '../components/SetRem';
 import maxWidth from '../components/SetMaxWidth';
+import ErrorCatch from '../components/ErrorCatch';
 
-
+@ErrorCatch
 @maxWidth
 @rem
 export default class App extends React.Component {
@@ -61,7 +62,7 @@ export default class App extends React.Component {
           <Route path="/webgl" component={WebGl} />
           <Route path="/util" component={Util} />
           <Route path="/login" component={Login} />
-          <Route path="/spin" component={SpinCpm} />
+          <Route path="/spin" component={SpinCpm} /> 
           <Route path="/preloading" component={PreLoading} />
           <Route component={NotFound} />
         </Switch>

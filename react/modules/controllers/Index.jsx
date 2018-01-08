@@ -30,6 +30,9 @@ export default class Index extends React.Component {
     })
   }
 
+  evalError(e) {
+    eval("console.lot('ssss')");
+  }
   render() {
     let {text} = this.state;
     return (
@@ -54,6 +57,7 @@ export default class Index extends React.Component {
           onChange={this.changeData.bind(this)}
           value={text}
           />
+        <button onClick={this.evalError.bind()}>evalError</button>
       </div>
     );
   }

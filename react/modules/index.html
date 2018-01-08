@@ -27,5 +27,11 @@
         </div>
     <![endif]-->
     <div id="app"></div>
+    <script>
+        window.onerror = function(e) {
+          console.log('捕获js异常');
+          console.log(e)
+        }
+    </script>
   </body>
 </html>
