@@ -46,6 +46,7 @@ export default class Index extends React.Component {
           <li><Link to="/webgl">webgl</Link></li>
           <li><Link to="/preloading">preloading</Link></li>
           <li><Link to="/spin">spin</Link></li>
+          <li><Link to="/test">TestCtl</Link></li>
         </ul>
         Index2
         <AddTodo/>

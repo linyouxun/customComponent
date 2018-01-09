@@ -16,6 +16,7 @@ import Util from './Util';
 import About from './About';
 import SpinCpm from './SpinCpm';
 import PreLoading from './PreLoading/PreLoading';
+import TestCtl from './TestCtl';
 import NotFound from './NotFound';
 
 
@@ -64,6 +65,7 @@ export default class App extends React.Component {
           <Route path="/login" component={Login} />
           <Route path="/spin" component={SpinCpm} /> 
           <Route path="/preloading" component={PreLoading} />
+          <Route path="/test" component={TestCtl} />
           <Route component={NotFound} />
         </Switch>
       </div>
