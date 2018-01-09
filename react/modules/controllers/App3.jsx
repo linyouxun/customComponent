@@ -8,7 +8,7 @@ import './app.scss';
 
 // controllers
 import Index from './Index';
-// import LazyImgCtl from './LazyImgCtl';
+import LazyImgCtl from './LazyImgCtl';
 import SlideImgCtl from './SlideImgCtl';
 import Login from './login/Login';
 import WebGl from './WebGl';
@@ -20,8 +20,8 @@ import NotFound from './NotFound';
 
 
 
-import asyncComponent from '../components/asyncComponent';
-const LazyImgCtl = asyncComponent(() => import('./LazyImgCtl').then(module => module.default));
+// import asyncComponent from '../components/asyncComponent';
+// const LazyImgCtl = asyncComponent(() => import('./LazyImgCtl').then(module => module.default));
 
 import rem from '../components/SetRem';
 import maxWidth from '../components/SetMaxWidth';

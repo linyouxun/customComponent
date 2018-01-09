@@ -1,8 +1,9 @@
 let fs = require('fs'),
   path = require('path'),
+  ExtractTextPlugin = require("extract-text-webpack-plugin"),
   webpack = require('webpack');
 module.exports = {
-  entry: path.resolve(__dirname, './server/server.js'),
+  entry: path.resolve(__dirname, './server/server2.js'),
   output: {
     path: path.resolve(__dirname, 'static/sChunkJs'),
     filename: '[name].js',
@@ -40,17 +41,26 @@ module.exports = {
   },
 
   module: {
-    loaders: [
+    rules: [
       {
         test: /\.jsx?$/,
         exclude: /node_modules/,
-        loader: 'babel-loader?presets[]=es2015&presets[]=react'
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: ['es2015', 'react', 'stage-0'],
+            plugins: ['syntax-dynamic-import', 'transform-decorators-legacy']
+          }
+        }
       }, {
         test: /\.css$/,
         loader: 'style-loader!css-loader'
       }, {
         test: /\.scss$/,
-        loader: 'style-loader!css-loader!sass-loader?sourceMap'
+        use: ExtractTextPlugin.extract({
+          fallback: 'style-loader',
+          use: ['css-loader', 'postcss-loader', 'sass-loader']
+        })
       }
     ]
   },
@@ -58,6 +68,7 @@ module.exports = {
   plugins: [
     // new webpack.optimize.CommonsChunkPlugin(/* chunkName= */"vendor", /* filename= */"vendor.bundle.js")
     // new webpack.optimize.CommonsChunkPlugin()
+    new ExtractTextPlugin("styles.css"),
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development')
     })

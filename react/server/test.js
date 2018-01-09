@@ -1,5 +1,8 @@
 console.log('test');
-function a() {
-  import('./test2.js');
-}
-a();
+
+console.log(import)
+// console.log(import)
+// function a() {
+//   import('./test2.js');
+// }
+// a();

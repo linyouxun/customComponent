@@ -16,7 +16,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, 'static/cChunkJs'),
     filename: '[name].js',
-    publicPath: '/static/cChunkJs',
+    publicPath: '/static/cChunkJs/',
     chunkFilename: '[name].[id].chunk.js'
   },
   resolve: {
@@ -58,13 +58,13 @@ module.exports = {
         'NODE_ENV': isDev ? JSON.stringify('dev') : JSON.stringify('production')
       }
     }),
-    // new HtmlWebpackPlugin({
-    //   title: 'My App',
-    //   template: path.resolve(__dirname, './modules/index.html'),
-    //   filename: 'index.html',
-    //   inject: true,
-    //   hash: true
-    // }), 
+    new HtmlWebpackPlugin({
+      title: 'My App',
+      template: path.resolve(__dirname, './modules/index.html'),
+      filename: 'index.html',
+      inject: true,
+      hash: true
+    }), 
     // new webpack.LoaderOptionsPlugin({
     //   options: {
     //     postcss: function () {

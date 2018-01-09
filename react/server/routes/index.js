@@ -15,16 +15,18 @@ router.post('a', (ctx, next) => {
   ctx.body = 'asdasdasd';
 });
 router.get('*', (ctx, next) => {
-  
+  let context = {};
   let $html = render(renderToString(
       (
         <Provider store={store}>
-          <Router context={{s:'dddd'}} location={ctx.url}>
+          <Router context={context} location={ctx.url}>
               <App2/>
           </Router>
         </Provider>
       )
   ));
+  console.log('context log:');
+  console.log(context)
   ctx.body = $html;
 });
 
