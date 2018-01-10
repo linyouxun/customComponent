@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import PropTypes from 'prop-types';
 export default class SliderImgs extends React.Component {
   constructor(props) {
@@ -8,7 +8,7 @@ export default class SliderImgs extends React.Component {
     };
     this.static = {
       count: 0,
-      clearTimeout: "",
+      clearTimeout: '',
       touchPos: {
         pageX: 0,
         pageY: 0,
@@ -19,19 +19,19 @@ export default class SliderImgs extends React.Component {
   componentDidMount() {
     require('./sliderImgs.scss');
     const {initClass} = this.props;
-    this.static.count = document.querySelectorAll("." + initClass)[0].firstChild.children.length;
-    this.slideStartEvent = this._slideStartEvent.bind(this, document.querySelectorAll("." + initClass)[0]);
-    this.slideMoveEvent = this._slideMoveEvent.bind(this, document.querySelectorAll("." + initClass)[0]);
-    this.slideEndEvent = this._slideEndEvent.bind(this, document.querySelectorAll("." + initClass)[0]);
+    this.static.count = document.querySelectorAll('.' + initClass)[0].firstChild.children.length;
+    this.slideStartEvent = this._slideStartEvent.bind(this, document.querySelectorAll('.' + initClass)[0]);
+    this.slideMoveEvent = this._slideMoveEvent.bind(this, document.querySelectorAll('.' + initClass)[0]);
+    this.slideEndEvent = this._slideEndEvent.bind(this, document.querySelectorAll('.' + initClass)[0]);
 
-    document.querySelectorAll("." + initClass)[0].addEventListener("touchstart", this.slideStartEvent, true);
-    document.querySelectorAll("." + initClass)[0].addEventListener("touchmove", this.slideMoveEvent, true);
-    document.querySelectorAll("." + initClass)[0].addEventListener("touchend", this.slideEndEvent, true);
+    document.querySelectorAll('.' + initClass)[0].addEventListener('touchstart', this.slideStartEvent, true);
+    document.querySelectorAll('.' + initClass)[0].addEventListener('touchmove', this.slideMoveEvent, true);
+    document.querySelectorAll('.' + initClass)[0].addEventListener('touchend', this.slideEndEvent, true);
   }
 
   _slideStartEvent(target, e) {
     e.stopPropagation();
-    target.firstChild.style.transitionDuration = "";
+    target.firstChild.style.transitionDuration = '';
     this.static.touchPos.pageX = e.targetTouches[0].pageX;
     this.static.touchPos.pageY = e.targetTouches[0].pageY;
     this.static.touchPos.moveX = this.getTranslate(target.firstChild);
@@ -44,7 +44,7 @@ export default class SliderImgs extends React.Component {
       transformMatrix = new WebKitCSSMatrix(curStyle.webkitTransform === 'none' ? '' : curStyle.webkitTransform);
       curTransform = transformMatrix.m41;
     } else {
-      alert("你的手机暂时不支持滑动查看图片");
+      alert('你的手机暂时不支持滑动查看图片');
       this.removeEvent();
     }
     return curTransform || 0;
@@ -55,17 +55,17 @@ export default class SliderImgs extends React.Component {
     e.stopPropagation();
     const x = e.targetTouches[0].pageX - this.static.touchPos.pageX + this.static.touchPos.moveX;
     if (target.firstChild.style.WebkitTransform) {
-      target.firstChild.style.WebkitTransitionDuration = "0ms";
-      target.firstChild.style.WebkitTransform = "translate3d(" + x + "px, 0px, 0px)";
+      target.firstChild.style.WebkitTransitionDuration = '0ms';
+      target.firstChild.style.WebkitTransform = 'translate3d(' + x + 'px, 0px, 0px)';
     } else {
-      target.firstChild.style.WebkitTransitionDuration = "0ms";
-      target.firstChild.style.WebkitTransform = "translate3d(0px, 0px, 0px)";
+      target.firstChild.style.WebkitTransitionDuration = '0ms';
+      target.firstChild.style.WebkitTransform = 'translate3d(0px, 0px, 0px)';
       if (target.firstChild.style.transform) {
-        target.firstChild.style.transitionDuration = "0ms";
-        target.firstChild.style.transform = "translate3d(" + x + "px, 0px, 0px)";
+        target.firstChild.style.transitionDuration = '0ms';
+        target.firstChild.style.transform = 'translate3d(' + x + 'px, 0px, 0px)';
       } else {
-        target.firstChild.style.transitionDuration = "0ms";
-        target.firstChild.style.transform = "translate3d(0px, 0px, 0px)";
+        target.firstChild.style.transitionDuration = '0ms';
+        target.firstChild.style.transform = 'translate3d(0px, 0px, 0px)';
       }
     }
   }
@@ -75,15 +75,15 @@ export default class SliderImgs extends React.Component {
     e.stopPropagation();
     target.scrollLeft = 0;
     this.static.touchPos = {pageX: 0, pageY: 0};
-    const width = target.offsetWidth,
-      moveEndY = this.getTranslate(target.firstChild),
-      curCount = this.posLeft(width, moveEndY);
+    const width = target.offsetWidth;
+    const moveEndY = this.getTranslate(target.firstChild);
+    const curCount = this.posLeft(width, moveEndY);
     this.setState({
       curIndex: Math.abs(curCount)
     });
     setTimeout(() => {
-      target.firstChild.style.WebkitTransitionDuration = "";
-      target.firstChild.style.WebkitTransform = "translate3d(" + (curCount * width) + "px, 0px, 0px)";
+      target.firstChild.style.WebkitTransitionDuration = '';
+      target.firstChild.style.WebkitTransform = 'translate3d(' + (curCount * width) + 'px, 0px, 0px)';
     }, 0);
   }
   posLeft(width, left) {
@@ -98,9 +98,9 @@ export default class SliderImgs extends React.Component {
 
   removeEvent() {
     const {initClass} = this.props;
-    document.querySelectorAll("." + initClass)[0].removeEventListener("touchstart", this.slideStartEvent, true);
-    document.querySelectorAll("." + initClass)[0].removeEventListener("touchmove", this.slideMoveEvent, true);
-    document.querySelectorAll("." + initClass)[0].removeEventListener("touchend", this.slideEndEvent, true);
+    document.querySelectorAll('.' + initClass)[0].removeEventListener('touchstart', this.slideStartEvent, true);
+    document.querySelectorAll('.' + initClass)[0].removeEventListener('touchmove', this.slideMoveEvent, true);
+    document.querySelectorAll('.' + initClass)[0].removeEventListener('touchend', this.slideEndEvent, true);
   }
 
   componentWillUnmount() {
@@ -111,7 +111,7 @@ export default class SliderImgs extends React.Component {
     const {imgs, initClass} = this.props;
     return (
       <div className={`slider-container ${initClass}`}>
-        <div className="slider">
+        <div className='slider'>
           {
             imgs.map((item, index) => {
               return (
@@ -122,11 +122,11 @@ export default class SliderImgs extends React.Component {
             })
           }
         </div>
-        <div className="slider-pagination">
+        <div className='slider-pagination'>
           {
             imgs.map((item, index) => {
               return (
-                <span key={index} className={this.state.curIndex === index ? "active" : ""}></span>
+                <span key={index} className={this.state.curIndex === index ? 'active' : ''}></span>
               );
             })
           }
@@ -137,7 +137,7 @@ export default class SliderImgs extends React.Component {
 }
 
 SliderImgs.defaultProps = {
-  initClass: "img-slider",
+  initClass: 'img-slider',
   imgs: []
 };
 

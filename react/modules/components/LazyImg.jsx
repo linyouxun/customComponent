@@ -1,10 +1,10 @@
-import React from "react";
+import React from 'react';
 import PropTypes from 'prop-types';
 export default class LazyImg extends React.Component {
   constructor(props) {
     super(props);
     this.static = {
-      monitorEvent: ["scroll", "resize", "touchmove"]
+      monitorEvent: ['scroll', 'resize', 'touchmove']
     };
   }
 
@@ -28,7 +28,8 @@ export default class LazyImg extends React.Component {
   }
 
   loadImg(el) {
-    const {originImg} = this.props, img = new Image();
+    const {originImg} = this.props;
+    const img = new Image();
     img.src = originImg;
     img.addEventListener('load', () => {
       el.src = img.src;
@@ -40,14 +41,14 @@ export default class LazyImg extends React.Component {
   }
 
   isVisiable(el) {
-    const bcr = el.getBoundingClientRect(), // 取得元素在可视区的位置
-      {left, top, right, bottom} = this.props,
-      mw = el.offsetWidth, // 元素自身宽度
-      mh = el.offsetHeight, // 元素自身的高度
-      w = window.innerWidth, // 视窗的宽度
-      h = window.innerHeight, // 视窗的高度
-      boolX = (!((bcr.right - left) <= 0 && ((bcr.left + mw) - left) <= 0) && !((bcr.left + right) >= w && (bcr.right + right) >= (mw + w))), // 上下符合条件
-      boolY = (!((bcr.bottom - top) <= 0 && ((bcr.top + mh) - top) <= 0) && !((bcr.top + bottom) >= h && (bcr.bottom + bottom) >= (mh + h))); // 上下符合条件
+    const bcr = el.getBoundingClientRect(); // 取得元素在可视区的位置
+    const {left, top, right, bottom} = this.props;
+    const mw = el.offsetWidth; // 元素自身宽度
+    const mh = el.offsetHeight; // 元素自身的高度
+    const w = window.innerWidth; // 视窗的宽度
+    const h = window.innerHeight; // 视窗的高度
+    const boolX = (!((bcr.right - left) <= 0 && ((bcr.left + mw) - left) <= 0) && !((bcr.left + right) >= w && (bcr.right + right) >= (mw + w))); // 上下符合条件
+    const boolY = (!((bcr.bottom - top) <= 0 && ((bcr.top + mh) - top) <= 0) && !((bcr.top + bottom) >= h && (bcr.bottom + bottom) >= (mh + h))); // 上下符合条件
     if (el.width !== 0 && el.height !== 0 && boolX && boolY) {
       return true;
     } else {
@@ -70,7 +71,7 @@ export default class LazyImg extends React.Component {
   render() {
     const {defaultClass, defaultImg} = this.props;
     return (
-      <img ref="lazyImg" className={defaultClass} src={defaultImg}/>
+      <img ref='lazyImg' className={defaultClass} src={defaultImg}/>
     );
   }
 }
@@ -80,9 +81,9 @@ LazyImg.defaultProps = {
   right: 0, // 元素在右边伸出的距离才加载
   bottom: 0, // 元素在底部伸出的距离才加载
   left: 0, // 元素在左边伸出的距离才加载
-  defaultClass: "",
-  defaultImg: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAC0lEQVR42mNgAAIAAAUAAen63NgAAAAASUVORK5CYII=",
-  originImg: ""
+  defaultClass: '',
+  defaultImg: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAC0lEQVR42mNgAAIAAAUAAen63NgAAAAASUVORK5CYII=',
+  originImg: ''
 };
 
 LazyImg.propTypes = {

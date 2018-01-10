@@ -22,7 +22,7 @@ export default class Header extends React.Component {
 }
 
 Header.defaultProps = {
-  title: "",
+  title: '',
   leftButton: () => {},
   rightButton: () => {}
 };

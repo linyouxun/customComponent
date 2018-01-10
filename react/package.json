@@ -5,6 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "c-lint": "eslint ./modules/modules/*",
+    "s-lint": "eslint ./modules/server/*",
     "client-hot": "webpack-dev-server --config  webpack.config.js --content-base static/cChunlJs --hot --inline --host 0.0.0.0 --port 5000",
     "client-build": "cross-env NODE_ENV='production' webpack --config webpack.config.js",
     "client-watch": "webpack --config webpack.config.js -w",
@@ -23,6 +25,7 @@
   "devDependencies": {
     "autoprefixer": "^7.2.3",
     "babel-core": "^6.18.2",
+    "babel-eslint": "^8.2.1",
     "babel-loader": "^6.2.8",
     "babel-plugin-syntax-dynamic-import": "^6.18.0",
     "babel-plugin-transform-async-to-generator": "^6.24.1",
@@ -43,6 +46,7 @@
     "eslint-plugin-import": "^2.7.0",
     "eslint-plugin-node": "^5.1.1",
     "eslint-plugin-promise": "^3.5.0",
+    "eslint-plugin-react": "^7.5.1",
     "eslint-plugin-standard": "^3.0.1",
     "extract-text-webpack-plugin": "^3.0.0",
     "file-saver": "^1.3.3",

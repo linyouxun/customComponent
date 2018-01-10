@@ -5,21 +5,18 @@ import './Spin.scss';
 
 function Loading(props) {
   return <span className='spin-load'>
-    <i className={cls('s-l-circle',props.className)}></i>
-    <i className={cls('s-l-circle',props.className)}></i>
-    <i className={cls('s-l-circle',props.className)}></i>
-    <i className={cls('s-l-circle',props.className)}></i>
-  </span>
+    <i className={cls('s-l-circle', props.className)}></i>
+    <i className={cls('s-l-circle', props.className)}></i>
+    <i className={cls('s-l-circle', props.className)}></i>
+    <i className={cls('s-l-circle', props.className)}></i>
+  </span>;
 }
-
-
-
 
 export default class Spin extends React.Component {
   componentDidMount() {
   }
   render() {
-    let {children, msg, className} = this.props;
+    let {children, className} = this.props;
     return (
       <div className='cpm-spin'>
         {children}
@@ -36,11 +33,11 @@ Spin.defaultProps = {
 };
 
 Spin.propTypes = {
-  msg: PropTypes.string,
+  msg: PropTypes.string
   // leftButton: PropTypes.func,
   // rightButton: PropTypes.func
 };
 
 export {
   Loading
-}
+};

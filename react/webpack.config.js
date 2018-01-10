@@ -1,11 +1,11 @@
-var path = require('path'),
-  HtmlWebpackPlugin = require('html-webpack-plugin'),
-  ExtractTextPlugin = require("extract-text-webpack-plugin"),
-  ScriptExtHtmlWebpackPlugin = require('script-ext-html-webpack-plugin'),
-  isDev = process.env.NODE_ENV !== 'production',
-  noop = new Function(),
-  webpack = require("webpack");
-const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
+let path = require('path')
+// let HtmlWebpackPlugin = require('html-webpack-plugin')
+let ExtractTextPlugin = require('extract-text-webpack-plugin')
+let ScriptExtHtmlWebpackPlugin = require('script-ext-html-webpack-plugin')
+let isDev = process.env.NODE_ENV !== 'production'
+let noop = () => {}
+let webpack = require('webpack')
+let UglifyJSPlugin = require('uglifyjs-webpack-plugin')
 
 module.exports = {
   // entry: ['babel-polyfill', path.resolve(__dirname, './modules/index.jsx')],
@@ -20,7 +20,7 @@ module.exports = {
     chunkFilename: '[name].[id].chunk.js'
   },
   resolve: {
-    extensions: [".js", ".jsx", "css", "less", "scss", "png", "jpg"]
+    extensions: ['.js', '.jsx', 'css', 'less', 'scss', 'png', 'jpg']
   },
   devServer: {
     historyApiFallback: true,
@@ -54,7 +54,7 @@ module.exports = {
   },
   plugins: [
     new webpack.DefinePlugin({
-      'process.env':{
+      'process.env': {
         'NODE_ENV': isDev ? JSON.stringify('dev') : JSON.stringify('production')
       }
     }),
@@ -64,21 +64,21 @@ module.exports = {
     //   filename: 'index.html',
     //   inject: true,
     //   hash: true
-    // }), 
+    // }),
     // new webpack.LoaderOptionsPlugin({
     //   options: {
     //     postcss: function () {
-    //       return ["autoprefixer"];
+    //       return ['autoprefixer'];
     //     },
     //     // devServer: {
-    //     //   contentBase: "./public", //本地服务器所加载的页面所在的目录
+    //     //   contentBase: './public', //本地服务器所加载的页面所在的目录
     //     //   colors: true, //终端中输出结果为彩色
     //     //   historyApiFallback: true, //不跳转
     //     //   inline: true //实时刷新
     //     // }
     //   }
     // }),
-    new ExtractTextPlugin("styles.css"),
+    new ExtractTextPlugin('styles.css'),
     new ScriptExtHtmlWebpackPlugin({
       defaultAttribute: 'async',
       custom: [
@@ -89,6 +89,6 @@ module.exports = {
         }
       ]
     }),
-    isDev ? noop: new UglifyJSPlugin()
+    isDev ? noop : new UglifyJSPlugin()
   ]
-};
+}

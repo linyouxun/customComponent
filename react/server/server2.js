@@ -1,5 +1,5 @@
-var Koa = require('koa'),
-    app = new Koa();
+var Koa = require('koa');
+var app = new Koa();
 var middlewareInitFn = require('./middleware');
 
 middlewareInitFn(app);

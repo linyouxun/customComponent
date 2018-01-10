@@ -1,7 +1,7 @@
 const Promise = require('bluebird');
-const request = Promise.promisify(require("request"));
+const request = Promise.promisify(require('request'));
 
-function fetchData(url,formData = {},method = "GET",headers = {}) {
+function fetchData(url, formData = {}, method = 'GET', headers = {}) {
   let options = {
     timeout: 8000,
     method,
@@ -11,16 +11,16 @@ function fetchData(url,formData = {},method = "GET",headers = {}) {
     form: formData
   };
   return new Promise((resolve, reject) => {
-    request(options).then(({body}) => { //尝试抓取
+    request(options).then(({body}) => { // 尝试抓取
       return body;
     }).catch(e => {
       reject({
         code: -1,
-        msg: `抓取错误：${e.message}`,
+        msg: `抓取错误：${e.message}`
       });
-    }).then(body => {  //抓取成功，解析JSON
+    }).then(body => {  // 抓取成功，解析JSON
       return Promise.try(() => JSON.parse(body));
-    }).catch(e => {  //解析ERROR
+    }).catch(e => {  // 解析ERROR
       reject({
         code: -3,
         msg: `JSON解析错误：${e.message}`
@@ -32,9 +32,10 @@ function fetchData(url,formData = {},method = "GET",headers = {}) {
           msg: 'not valid format，没有code字段'
         });
       }
-      if (JSONBody && JSONBody.code === 200)
+      if (JSONBody && JSONBody.code === 200) {
         return resolve(JSONBody);
-        return reject(JSONBody);
+      }
+      return reject(JSONBody);
     });
   });
 }

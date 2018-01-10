@@ -1,9 +1,6 @@
 // 手机：
 // '12345678901'.replace(/\B(?=(?:\d{4})+$)/g, '-')
 // // '123-4567-8901'
-
-
-
 const util = {
 
   // 转换价格
@@ -18,10 +15,7 @@ const util = {
   // '123-4567-8901'
   transformPhone: (phone) => {
     return phone.replace(/\B(?=(?:\d{4})+$)/g, '-');
-  },
-
+  }
 };
 
 module.exports = util;
-
-

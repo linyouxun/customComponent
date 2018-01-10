@@ -33,7 +33,7 @@ function render(html) {
 
 const app = express();
 app.get('*', (req, res) => {
-  let html = <Router context={{}} location={req.url}><App2/></Router>
+  let html = <Router context={{}} location={req.url}><App2/></Router>;
   res.status(200).send(render(renderToString(
       (html)
   )));
